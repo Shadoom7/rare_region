@@ -17,7 +17,7 @@
 <html>
     <head>
         <title>
-            FuzzBench: show_diff report
+            FuzzBench: differential-store-7 report
             
         </title>
 
@@ -31,7 +31,7 @@
     <div class="container"><div class="row"><div class="col s12 m10 l10">
 
         <h1 class="center-align brown-text text-darken-3">
-            FuzzBench: show_diff report
+            FuzzBench: differential-store-7 report
         </h1>
         
 
@@ -93,7 +93,7 @@
     </tr>
     <tr>
       <th>libfuzzer</th>
-      <td>92.54</td>
+      <td>94.07</td>
     </tr>
   </tbody>
 </table>
@@ -189,13 +189,13 @@
   <tbody>
     <tr>
       <th>bloaty_fuzz_target</th>
-      <td>7043.0</td>
-      <td>6338.0</td>
+      <td>7137</td>
+      <td>6397</td>
     </tr>
     <tr>
       <th>libpng-1.2.56</th>
-      <td>1943.0</td>
-      <td>1847.5</td>
+      <td>1939</td>
+      <td>1910</td>
     </tr>
   </tbody>
 </table>
@@ -213,8 +213,10 @@
             <div class="row">
                 <div class="col s6">
                     <h5 class="center-align">Ranking by median reached coverage</h5>
+                    
                     <img class="responsive-img materialboxed"
-                         src="bloaty_fuzz_target_ranking.svg">
+                        src="bloaty_fuzz_target_ranking.svg">
+                    
                 </div>
                 <div class="col s6">
                     <h5 class="center-align">Reached coverage distribution</h5>
@@ -276,25 +278,25 @@
       <th>afl</th>
       <th>1800</th>
       <td>2.0</td>
-      <td>7043.0</td>
-      <td>124.450793</td>
-      <td>6955.0</td>
-      <td>6999.0</td>
-      <td>7043.0</td>
-      <td>7087.0</td>
-      <td>7131.0</td>
+      <td>7137.0</td>
+      <td>35.355339</td>
+      <td>7112.0</td>
+      <td>7124.5</td>
+      <td>7137.0</td>
+      <td>7149.5</td>
+      <td>7162.0</td>
     </tr>
     <tr>
       <th>libfuzzer</th>
       <th>1800</th>
       <td>2.0</td>
-      <td>6338.0</td>
-      <td>19.798990</td>
-      <td>6324.0</td>
-      <td>6331.0</td>
-      <td>6338.0</td>
-      <td>6345.0</td>
-      <td>6352.0</td>
+      <td>6397.0</td>
+      <td>292.742207</td>
+      <td>6190.0</td>
+      <td>6293.5</td>
+      <td>6397.0</td>
+      <td>6500.5</td>
+      <td>6604.0</td>
     </tr>
   </tbody>
 </table>
@@ -313,16 +315,38 @@
                             </div>
                         </div> <!-- row -->
 
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Differential matrix
+                    </div>
+                    <div class="collapsible-body">
+
                         
                         <div class="row">
                             <div class="col s6 offset-s3">
-                                <h5 class="center-align">Rare Region Coverage</h4>
+                                <h5 class="center-align">Ranking by unique edges covered</h4>
                                     <img class="responsive-img materialboxed"
-                                         src="bloaty_fuzz_target_ranking_rare_region.svg">
-                                    The table shows the coverage rank of each fuzzer
-                                    on the rare regions for this benchmark. The rare
-                                    region is defined as only being hit by less than
-                                    threshold(default=20%) of all fuzzers.
+                                         src="bloaty_fuzz_target_ranking_unique_region.svg">
+                                    The table shows the unique edges coverage rank of each fuzzer
+                                    on this benchmark. Unique edges are edges only covered by one
+                                    certain fuzzer.
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Complementary pairs table</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="bloaty_fuzz_target_complementary_pairs_plot.svg">
+                                    This table is a square matrix where each row and column
+                                    represents a fuzzer, and each cell contains a number showing the
+                                    number of edges covered by the fuzzer of the column but not by
+                                    the fuzzer of the row.
                             </div>
                         </div> <!-- row -->
                         
@@ -330,8 +354,29 @@
                     </div>
                 </li>
             </ul>
-
-
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="row">
+                            
+                            <div class="col">
+                                <a class="waves-effect waves-light btn" href="https://storage.googleapis.com/my-fuzzbench-data/differential-store-7/coverage/reports/bloaty_fuzz_target/libfuzzer/index.html">libfuzzer</a>
+                            </div>
+                            
+                            <div class="col">
+                                <a class="waves-effect waves-light btn" href="https://storage.googleapis.com/my-fuzzbench-data/differential-store-7/coverage/reports/bloaty_fuzz_target/afl/index.html">afl</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            
         </div> <!-- id="bloaty_fuzz_target" -->
         
 
@@ -342,8 +387,10 @@
             <div class="row">
                 <div class="col s6">
                     <h5 class="center-align">Ranking by median reached coverage</h5>
+                    
                     <img class="responsive-img materialboxed"
-                         src="libpng-1.2.56_ranking.svg">
+                        src="libpng-1.2.56_ranking.svg">
+                    
                 </div>
                 <div class="col s6">
                     <h5 class="center-align">Reached coverage distribution</h5>
@@ -405,25 +452,25 @@
       <th>afl</th>
       <th>1800</th>
       <td>2.0</td>
-      <td>1943.0</td>
-      <td>1.414214</td>
-      <td>1942.0</td>
-      <td>1942.50</td>
-      <td>1943.0</td>
-      <td>1943.50</td>
-      <td>1944.0</td>
+      <td>1939.0</td>
+      <td>2.828427</td>
+      <td>1937.0</td>
+      <td>1938.0</td>
+      <td>1939.0</td>
+      <td>1940.0</td>
+      <td>1941.0</td>
     </tr>
     <tr>
       <th>libfuzzer</th>
       <th>1800</th>
       <td>2.0</td>
-      <td>1847.5</td>
-      <td>23.334524</td>
-      <td>1831.0</td>
-      <td>1839.25</td>
-      <td>1847.5</td>
-      <td>1855.75</td>
-      <td>1864.0</td>
+      <td>1910.0</td>
+      <td>29.698485</td>
+      <td>1889.0</td>
+      <td>1899.5</td>
+      <td>1910.0</td>
+      <td>1920.5</td>
+      <td>1931.0</td>
     </tr>
   </tbody>
 </table>
@@ -442,16 +489,38 @@
                             </div>
                         </div> <!-- row -->
 
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Differential matrix
+                    </div>
+                    <div class="collapsible-body">
+
                         
                         <div class="row">
                             <div class="col s6 offset-s3">
-                                <h5 class="center-align">Rare Region Coverage</h4>
+                                <h5 class="center-align">Ranking by unique edges covered</h4>
                                     <img class="responsive-img materialboxed"
-                                         src="libpng-1.2.56_ranking_rare_region.svg">
-                                    The table shows the coverage rank of each fuzzer
-                                    on the rare regions for this benchmark. The rare
-                                    region is defined as only being hit by less than
-                                    threshold(default=20%) of all fuzzers.
+                                         src="libpng-1.2.56_ranking_unique_region.svg">
+                                    The table shows the unique edges coverage rank of each fuzzer
+                                    on this benchmark. Unique edges are edges only covered by one
+                                    certain fuzzer.
+                            </div>
+                        </div> <!-- row -->
+
+                        <div class="row">
+                            <div class="col s6 offset-s3">
+                                <h5 class="center-align">Complementary pairs table</h4>
+                                    <img class="responsive-img materialboxed"
+                                         src="libpng-1.2.56_complementary_pairs_plot.svg">
+                                    This table is a square matrix where each row and column
+                                    represents a fuzzer, and each cell contains a number showing the
+                                    number of edges covered by the fuzzer of the column but not by
+                                    the fuzzer of the row.
                             </div>
                         </div> <!-- row -->
                         
@@ -459,8 +528,29 @@
                     </div>
                 </li>
             </ul>
-
-
+            
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        Coverage reports for each fuzzer on this benchmark
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="row">
+                            
+                            <div class="col">
+                                <a class="waves-effect waves-light btn" href="https://storage.googleapis.com/my-fuzzbench-data/differential-store-7/coverage/reports/libpng-1.2.56/afl/index.html">afl</a>
+                            </div>
+                            
+                            <div class="col">
+                                <a class="waves-effect waves-light btn" href="https://storage.googleapis.com/my-fuzzbench-data/differential-store-7/coverage/reports/libpng-1.2.56/libfuzzer/index.html">libfuzzer</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            
         </div> <!-- id="libpng-1.2.56" -->
         
 
@@ -475,7 +565,7 @@
             
             <br><br>
             The experiment was conducted using this FuzzBench commit:
-            <a href="https://github.com/google/fuzzbench/commits/ed700f3efb37e859fa325141bba1d598edb450b8">ed700f3efb37e859fa325141bba1d598edb450b8</a>
+            <a href="https://github.com/google/fuzzbench/commits/62307cbeea18920c5b0ca0985e6db46300f83417">62307cbeea18920c5b0ca0985e6db46300f83417</a>
             
         </div>    <!-- id="data" -->
 
